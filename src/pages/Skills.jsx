@@ -9,7 +9,7 @@ const skillsData = [
   },
   {
     category: "Backend",
-    skills: ["Spring Boot", "C#", "REST APIs"],
+    skills: ["Spring Boot", "Django", "REST APIs"],
     color: "#0077B6"
   },
   {
@@ -19,7 +19,7 @@ const skillsData = [
   },
   {
     category: "Tools & Others",
-    skills: ["GitHub", "Git", "Android Studio", "VS Code", "Canva"],
+    skills: ["GitHub", "Git", "Android Studio", "VS Code", "Canva", "Vercel"],
     color: "#90E0EF"
   }
 ];

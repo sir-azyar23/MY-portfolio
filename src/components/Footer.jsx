@@ -23,7 +23,7 @@ export default function Footer() {
           <a href="https://instagram.com/zubeyr_Amy" target="_blank" rel="noreferrer" className="p-2 rounded-full bg-[var(--input-bg)] hover:bg-[#00B4D8]/20 text-[var(--text-light)] hover:text-[#00B4D8] transition-all">
             <FaInstagram size={20} />
           </a>
-          <a href="mailto:zubeyramy@gmail.com" className="p-2 rounded-full bg-[var(--input-bg)] hover:bg-[#00B4D8]/20 text-[var(--text-light)] hover:text-[#00B4D8] transition-all">
+          <a href="mailto:zubeirame11@gmail.com" className="p-2 rounded-full bg-[var(--input-bg)] hover:bg-[#00B4D8]/20 text-[var(--text-light)] hover:text-[#00B4D8] transition-all">
             <Mail size={20} />
           </a>
           <a href="tel:+255772327918" className="p-2 rounded-full bg-[var(--input-bg)] hover:bg-[#00B4D8]/20 text-[var(--text-light)] hover:text-[#00B4D8] transition-all">

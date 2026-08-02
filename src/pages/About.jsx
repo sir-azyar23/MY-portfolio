@@ -60,7 +60,7 @@ export default function About() {
           <p className="text-[var(--text-light)] font-inter leading-relaxed mb-5">
             Hello! I'm{' '}
             <span className="text-[#00B4D8] font-bold">ZUBEIR AME ZUBEIR</span> — known online as{' '}
-            <span className="text-[#48CAE4] font-semibold">Zubeyr_Amy</span>. I am a passionate Software Developer and currently a Third Year Computer Science Student at the{' '}
+            <span className="text-[#48CAE4] font-semibold">Zubeyr_Amy</span>. I am a passionate Software Developer and currently a <span className="text-[var(--text-main)] font-semibold">Final Year Computer Science Student</span> at the{' '}
             <span className="text-[var(--text-main)] font-semibold">State University of Zanzibar (SUZA)</span>, expected to graduate this year.
           </p>
 
@@ -68,13 +68,17 @@ export default function About() {
             I am a <span className="text-[#00B4D8] font-semibold">versatile creative developer</span> with both strong technical engineering skills and a refined aesthetic sense for UI/UX. I don't just write code — I craft complete digital experiences, from system architecture to pixel-perfect interfaces.
           </p>
 
+          <p className="text-[var(--text-light)] font-inter leading-relaxed mb-5">
+            I have hands-on experience in <span className="text-[var(--text-main)] font-semibold">UI/UX design using Figma</span>, proficiency in the <span className="text-[var(--text-main)] font-semibold">Microsoft Office Suite</span>, and strong analytical foundations rooted in mathematics, enabling me to approach challenges with both creativity and logic.
+          </p>
+
           <p className="text-[var(--text-light)] font-inter leading-relaxed">
-            Beyond development, I have hands-on experience in UI/UX design using <span className="text-[var(--text-main)] font-semibold">Figma</span>, productivity mastery through the <span className="text-[var(--text-main)] font-semibold">Microsoft Office Suite</span>, and strong analytical foundations rooted in mathematics — all of which make me a well-rounded problem solver.
+            I am passionate about <span className="text-[#00B4D8] font-semibold">continuously learning and exploring new technologies</span>. I enjoy expanding my knowledge across different areas of software development, staying up to date with emerging technologies, and applying what I learn to build innovative, efficient, and user-centered digital solutions.
           </p>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mt-7">
-            {["Full-Stack", "Android Dev", "UI/UX Design", "Creative Dev", "Problem Solver"].map((tag) => (
+            {["Full-Stack Development", "React.js", "Spring Boot", "Flutter", "UI/UX Design", "Problem Solver", "Continuous Learner"].map((tag) => (
               <span key={tag} className="text-xs font-mono text-[#00B4D8] bg-[#00B4D8]/10 border border-[#00B4D8]/25 px-3 py-1 rounded-full">
                 {tag}
               </span>
@@ -85,12 +89,12 @@ export default function About() {
         {/* Quick Stats / Identity — takes 2 cols */}
         <motion.div variants={itemVariants} className="lg:col-span-2 flex flex-col gap-5">
           {[
-            { label: "Current Status",  value: "3rd Year CS Student",        color: "#00B4D8" },
-            { label: "University",      value: "SUZA — Zanzibar",             color: "#48CAE4" },
-            { label: "Graduation",      value: "Expected This Year",          color: "#90E0EF" },
-            { label: "Focus Areas",     value: "Web · Mobile · UI Design",   color: "#00B4D8" },
-            { label: "Design Tool",     value: "Figma",                       color: "#48CAE4" },
-            { label: "Open To",         value: "Freelance & Collaborations",  color: "#90E0EF" },
+            { label: "Current Status",  value: "Final Year CS Student",                             color: "#00B4D8" },
+            { label: "University",      value: "State University of Zanzibar (SUZA)",               color: "#48CAE4" },
+            { label: "Graduation",      value: "Expected This Year",                                color: "#90E0EF" },
+            { label: "Focus Areas",     value: "Full-Stack · Mobile · UI/UX",                      color: "#00B4D8" },
+            { label: "Design Tool",     value: "Figma",                                             color: "#48CAE4" },
+            { label: "Open To",         value: "Freelance · Collaborations · Internship",          color: "#90E0EF" },
           ].map((item, i) => (
             <div key={i} className="glass-card px-6 py-4 rounded-2xl flex justify-between items-center group hover:border-[#00B4D8]/50 transition-colors">
               <span className="text-[var(--text-muted)] text-sm font-inter">{item.label}</span>
