@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { Download, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Briefcase, Mail } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import profileImg from '../assets/profile.jpeg';
 
@@ -16,6 +16,23 @@ export default function Home() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const navigate = useNavigate();
+
+  const handleWorkExperienceClick = (e) => {
+    e.preventDefault();
+    const elem = document.getElementById('work-experience');
+    if (elem) {
+      elem.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/experience');
+      setTimeout(() => {
+        const el = document.getElementById('work-experience');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
 
   useEffect(() => {
     const currentRole = ROLES[roleIndex];
@@ -78,10 +95,13 @@ export default function Home() {
               <Mail size={20} />
               Contact Me
             </Link>
-            <a href="/cv.pdf" target="_blank" className="px-8 py-3 rounded-full glass-card text-[var(--text-main)] font-medium hover:bg-[var(--input-hover)] transition-all flex items-center gap-2">
-              <Download size={20} />
-              Download CV
-            </a>
+            <button 
+              onClick={handleWorkExperienceClick}
+              className="px-8 py-3 rounded-full glass-card text-[var(--text-main)] font-medium hover:bg-[var(--input-hover)] transition-all flex items-center gap-2"
+            >
+              <Briefcase size={20} />
+              Work Experience
+            </button>
           </div>
         </motion.div>
 

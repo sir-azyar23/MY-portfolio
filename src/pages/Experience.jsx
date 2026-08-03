@@ -251,7 +251,7 @@ export default function Experience() {
       className="max-w-7xl mx-auto px-6 md:px-12 py-12"
     >
       {/* SECTION 1: EXPERIENCE TIMELINE */}
-      <div className="max-w-4xl mx-auto mb-24">
+      <div id="work-experience" className="max-w-4xl mx-auto mb-24">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1.5 rounded-full bg-[#00B4D8]/10 border border-[#00B4D8]/30 mb-4">
             <span className="text-[#00B4D8] font-medium text-sm tracking-wider uppercase">✦ Career Progression</span>
