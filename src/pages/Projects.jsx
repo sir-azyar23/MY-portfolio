@@ -9,7 +9,7 @@ const projectsData = [
     description: "A modern IT Help Desk System developed for the Zanzibar Revenue Authority (ZRA). The system allows employees to submit IT support tickets, while administrators and IT support staff can assign, track, manage, and resolve issues through a secure role-based dashboard.",
     tech: ["React.js (Vite)", "Tailwind CSS", "JavaScript", "Spring Boot", "PostgreSQL", "JWT Authentication"],
     github: "https://github.com/sir-azyar23",
-    liveDemo: "https://hdszra-project.vercel.app/login"
+    liveDemo: "https://hdszra-project.vercel.app"
   },
   {
     title: "Zan Usafiri Management System",
