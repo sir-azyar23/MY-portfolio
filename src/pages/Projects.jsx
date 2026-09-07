@@ -14,7 +14,7 @@ const projectsData = [
   {
     title: "Zan Usafiri Management System",
     category: "Full Stack Web Application",
-    description: "A comprehensive transportation management system for managing transport operations and bookings in Zanzibar. Streamlines the booking process, route management, fare structures, and fleet allocations.",
+    description: "ZanUsafiri is a web-based route management system developed for the Zanzibar transport context. It centralizes the management of transport routes, ordered bus stops, passenger fares, buses, drivers and route assignments. The system also enables public users to explore available routes and fare information through an interactive map. It was developed using React, Spring Boot, PostgreSQL, Leaflet and OpenStreetMap.",
     tech: ["React.js", "PostgreSQL", "Tailwind CSS", "Spring Boot", "REST APIs"],
     github: "https://github.com/sir-azyar23",
     liveDemo: "https://zan-usafiri-project.vercel.app"
