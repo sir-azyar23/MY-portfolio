@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Code2, Moon, Sun, Mail } from 'lucide-react';
+import { Menu, X, Moon, Sun, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useMantineColorScheme } from '@mantine/core';
 
@@ -16,34 +16,26 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'glass py-3 shadow-md' : 'py-5 bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        {/* Brand Logo */}
+    <nav className="fixed top-0 left-0 w-full z-50 pt-3 md:pt-4 px-4 sm:px-6 pointer-events-none">
+      <div className="max-w-6xl mx-auto rounded-full px-4 sm:px-6 py-2.5 bg-[var(--surface)] border border-[var(--border)] shadow-[0_8px_32px_var(--glass-shadow)] backdrop-blur-xl flex justify-between items-center pointer-events-auto transition-all duration-300">
+        
+        {/* Brand Logo with Glowing </> Icon */}
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-xl bg-[#005B3D] flex items-center justify-center border border-[#D4A72C]/40 shadow-sm group-hover:bg-[#087A4B] transition-colors">
-            <Code2 className="text-[#D4A72C]" size={22} />
+          <div className="w-9 h-9 rounded-xl bg-[var(--surface-solid)] border border-[var(--border-glow)] flex items-center justify-center shadow-[0_0_15px_rgba(0,200,117,0.25)] group-hover:scale-105 transition-all">
+            <span className="font-mono font-bold text-sm text-[var(--accent-gold)] tracking-tighter">&lt;/&gt;</span>
           </div>
-          <span className="font-poppins font-bold text-xl tracking-wide text-[var(--text-main)]">
-            Zubeyr<span className="text-[#D4A72C]">_Amy</span>
+          <span className="font-poppins font-bold text-lg tracking-wide text-[var(--text-primary)]">
+            Zubeyr<span className="text-[var(--accent-gold)]">_Amy</span>
           </span>
         </Link>
         
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          <div className="flex gap-6">
+        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+          <div className="flex gap-5 lg:gap-6 items-center">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
@@ -52,15 +44,15 @@ export default function Navbar() {
                   to={link.path}
                   className={`font-inter text-sm font-medium transition-all relative py-1 ${
                     isActive 
-                      ? 'text-[#005B3D] dark:text-[#E7C766] font-semibold' 
-                      : 'text-[var(--text-muted)] hover:text-[#005B3D] dark:hover:text-[#D4A72C]'
+                      ? 'text-[var(--accent-gold)] font-semibold' 
+                      : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                   }`}
                 >
                   {link.title}
                   {isActive && (
                     <motion.div 
-                      layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#D4A72C] rounded-full"
+                      layoutId="activeNavUnderline"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--accent-gold)] rounded-full shadow-[0_0_6px_var(--accent-gold)]"
                     />
                   )}
                 </Link>
@@ -68,35 +60,43 @@ export default function Navbar() {
             })}
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
+            {/* Theme Toggle Button */}
             <button 
               onClick={() => toggleColorScheme()} 
-              className="p-2.5 rounded-xl bg-[#DFF3E9]/60 dark:bg-white/10 text-[#005B3D] dark:text-[#E7C766] border border-[#DDE9E3] dark:border-white/15 hover:bg-[#DFF3E9] transition-colors"
+              className="w-9 h-9 rounded-full bg-[var(--surface-2)] text-[var(--accent-gold)] border border-[var(--border)] hover:border-[var(--accent-gold)]/60 flex items-center justify-center transition-all shadow-sm"
               title="Toggle theme"
+              aria-label="Toggle theme"
             >
-              {colorScheme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              {colorScheme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
             </button>
 
+            {/* Contact Me CTA Button */}
             <Link 
               to="/contact" 
-              className="px-5 py-2 rounded-xl bg-[#005B3D] text-white font-medium hover:bg-[#087A4B] transition-all flex items-center gap-2 text-sm border border-[#D4A72C]/40 shadow-sm"
+              className="px-4 py-2 rounded-full bg-[var(--button-primary)] hover:bg-[var(--button-primary-hover)] text-[var(--button-primary-text)] font-medium text-xs sm:text-sm flex items-center gap-2 border border-[var(--accent-gold)]/60 shadow-[0_0_15px_rgba(10,143,91,0.35)] hover:shadow-[0_0_20px_rgba(10,143,91,0.5)] transition-all hover:-translate-y-0.5"
             >
-              <Mail size={16} className="text-[#D4A72C]" />
-              Contact Me
+              <Mail size={15} className="text-[var(--accent-gold)]" />
+              <span>Contact Me</span>
             </Link>
           </div>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center gap-3">
+        {/* Mobile Menu Actions */}
+        <div className="md:hidden flex items-center gap-2">
           <button 
             onClick={() => toggleColorScheme()} 
-            className="p-2 rounded-xl bg-[#DFF3E9]/60 dark:bg-white/10 text-[#005B3D] dark:text-[#E7C766] border border-[#DDE9E3] dark:border-white/15"
+            className="w-8 h-8 rounded-full bg-[var(--surface-2)] text-[var(--accent-gold)] border border-[var(--border)] flex items-center justify-center"
+            aria-label="Toggle theme"
           >
-            {colorScheme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            {colorScheme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
           </button>
-          <button className="text-[var(--text-main)] p-2" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <button 
+            className="p-1.5 rounded-lg text-[var(--text-primary)] hover:bg-[var(--surface-2)] transition-colors" 
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Open menu"
+          >
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
@@ -107,17 +107,17 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="absolute top-full left-0 w-full glass border-t border-[var(--border-light)] py-4 flex flex-col items-center gap-3 md:hidden shadow-lg"
+          className="max-w-6xl mx-auto mt-2 rounded-2xl bg-[var(--surface)] border border-[var(--border)] py-4 px-6 flex flex-col items-center gap-3 md:hidden shadow-2xl backdrop-blur-2xl pointer-events-auto"
         >
           {navLinks.map((link) => (
             <Link
               key={link.title}
               to={link.path}
               onClick={() => setIsOpen(false)}
-              className={`font-inter text-base font-medium w-full text-center py-2.5 transition-colors ${
+              className={`font-inter text-sm font-medium w-full text-center py-2 transition-colors rounded-lg ${
                 location.pathname === link.path 
-                  ? 'text-[#005B3D] dark:text-[#E7C766] font-semibold bg-[#DFF3E9]/50 dark:bg-white/5 border-l-4 border-[#D4A72C]' 
-                  : 'text-[var(--text-muted)] hover:text-[#005B3D]'
+                  ? 'text-[var(--accent-gold)] font-semibold bg-[var(--surface-2)] border-l-4 border-[var(--accent-gold)]' 
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
             >
               {link.title}
@@ -126,9 +126,9 @@ export default function Navbar() {
           <Link
             to="/contact"
             onClick={() => setIsOpen(false)}
-            className="mt-2 px-6 py-2.5 rounded-xl bg-[#005B3D] text-white font-medium flex items-center gap-2 text-sm border border-[#D4A72C]/40"
+            className="mt-2 w-full py-2.5 rounded-xl bg-[var(--button-primary)] text-white font-medium flex items-center justify-center gap-2 text-sm border border-[var(--accent-gold)]/60"
           >
-            <Mail size={16} className="text-[#D4A72C]" />
+            <Mail size={15} className="text-[var(--accent-gold)]" />
             Contact Me
           </Link>
         </motion.div>

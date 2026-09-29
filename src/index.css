@@ -1,112 +1,109 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-dark: #005B3D;
-  --color-emerald-deep: #006B46;
-  --color-main-green: #087A4B;
-  --color-secondary-green: #0B8A55;
-  --color-light-green: #DFF3E9;
-  --color-bg-light: #F3FAF6;
-  --color-bg-cream: #FAFAF6;
-  --color-gold-primary: #D4A72C;
-  --color-gold-light: #E7C766;
-  --color-gold-bg: #F5E7B9;
-  --color-text-dark: #12251D;
-  --color-text-muted: #64746D;
-  --color-border-light: #DDE9E3;
-  
   --font-poppins: 'Poppins', sans-serif;
   --font-inter: 'Inter', sans-serif;
   --font-space: 'Space Grotesk', sans-serif;
 }
 
-:root {
-  --bg-color: #F3FAF6;
-  --bg-card: #FFFFFF;
-  --bg-secondary: #FAFAF6;
-  --text-main: #12251D;
-  --text-muted: #64746D;
-  --text-light: #2A473C;
-  
-  --primary-green: #005B3D;
-  --emerald-deep: #006B46;
-  --main-green: #087A4B;
-  --secondary-green: #0B8A55;
-  --accent-light-green: #DFF3E9;
-  
-  --gold-primary: #D4A72C;
-  --gold-light: #E7C766;
-  --gold-bg: #F5E7B9;
-  
-  --border-light: #DDE9E3;
-  --glass-border: #DDE9E3;
-  --glass-shadow: rgba(0, 91, 61, 0.06);
-  
-  --input-bg: #FFFFFF;
-  --input-hover: #F3FAF6;
-  --input-border: #DDE9E3;
+/* DARK THEME (DEFAULT / DARK) */
+:root, :root[data-mantine-color-scheme="dark"] {
+  --bg: #001F17;
+  --bg-secondary: #05281F;
+  --surface: rgba(7, 45, 34, 0.85);
+  --surface-2: rgba(10, 55, 42, 0.9);
+  --surface-solid: #062B20;
+  --text-primary: #FFFFFF;
+  --text-secondary: #D8E7E0;
+  --text-muted: #A7BBB3;
+  --border: rgba(0, 200, 117, 0.28);
+  --border-glow: rgba(0, 200, 117, 0.45);
+  --accent: #00C875;
+  --accent-gold: #E5B842;
+  --accent-gold-light: #F5E7B9;
+  --button-primary: #0A8F5B;
+  --button-primary-hover: #0DA768;
+  --button-primary-text: #FFFFFF;
+  --button-secondary: rgba(7, 45, 34, 0.7);
+  --button-secondary-hover: rgba(10, 55, 42, 0.9);
+  --button-secondary-text: #FFFFFF;
+  --badge-bg: #03281c;
+  --badge-text: #E5B842;
+  --badge-border: rgba(13, 167, 104, 0.4);
+  --card-bg: rgba(4, 38, 28, 0.9);
+  --card-border: rgba(13, 167, 104, 0.35);
+  --glass-bg: rgba(3, 35, 25, 0.85);
+  --glass-border: rgba(0, 200, 117, 0.28);
+  --glass-shadow: rgba(0, 0, 0, 0.5);
+  --input-bg: rgba(2, 43, 30, 0.75);
+  --input-border: rgba(0, 200, 117, 0.3);
+  --input-text: #FFFFFF;
 }
 
-:root[data-mantine-color-scheme="dark"] {
-  --bg-color: #051A14;
-  --bg-card: #0A261D;
-  --bg-secondary: #082119;
-  --text-main: #F3FAF6;
-  --text-muted: #94A89F;
-  --text-light: #C2D6CC;
-  
-  --primary-green: #087A4B;
-  --emerald-deep: #0B8A55;
-  --main-green: #109B5E;
-  --secondary-green: #14B870;
-  --accent-light-green: rgba(13, 138, 85, 0.2);
-  
-  --gold-primary: #E7C766;
-  --gold-light: #F5E7B9;
-  --gold-bg: rgba(212, 167, 44, 0.2);
-  
-  --border-light: rgba(221, 233, 227, 0.15);
-  --glass-border: rgba(212, 167, 44, 0.25);
-  --glass-shadow: rgba(0, 0, 0, 0.4);
-  
-  --input-bg: rgba(255, 255, 255, 0.05);
-  --input-hover: rgba(255, 255, 255, 0.1);
-  --input-border: rgba(255, 255, 255, 0.15);
+/* LIGHT THEME */
+:root[data-mantine-color-scheme="light"] {
+  --bg: #F6FBF8;
+  --bg-secondary: #ECF6F1;
+  --surface: rgba(255, 255, 255, 0.94);
+  --surface-2: rgba(245, 250, 247, 0.96);
+  --surface-solid: #FFFFFF;
+  --text-primary: #0E1F18;
+  --text-secondary: #244438;
+  --text-muted: #5E746B;
+  --border: rgba(0, 107, 70, 0.2);
+  --border-glow: rgba(0, 107, 70, 0.35);
+  --accent: #006B46;
+  --accent-gold: #C7951B;
+  --accent-gold-light: #D4A72C;
+  --button-primary: #0B8A55;
+  --button-primary-hover: #087A4B;
+  --button-primary-text: #FFFFFF;
+  --button-secondary: #FFFFFF;
+  --button-secondary-hover: #ECF6F1;
+  --button-secondary-text: #0E1F18;
+  --badge-bg: #DFF3E9;
+  --badge-text: #005B3D;
+  --badge-border: rgba(0, 107, 70, 0.25);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: rgba(0, 107, 70, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(0, 107, 70, 0.2);
+  --glass-shadow: rgba(0, 91, 61, 0.08);
+  --input-bg: #FFFFFF;
+  --input-border: rgba(0, 107, 70, 0.25);
+  --input-text: #0E1F18;
 }
 
 body {
   margin: 0;
   font-family: var(--font-inter);
-  background-color: var(--bg-color);
-  color: var(--text-main);
+  background-color: var(--bg);
+  color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Glassmorphism & Card utility */
+/* Glass Card & Surfaces */
 .glass {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-light);
-  box-shadow: 0 4px 20px var(--glass-shadow);
-}
-
-:root[data-mantine-color-scheme="dark"] .glass {
-  background: rgba(10, 38, 29, 0.85);
-  border-color: rgba(212, 167, 44, 0.2);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px var(--glass-shadow);
 }
 
 .glass-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  box-shadow: 0 4px 20px var(--glass-shadow);
-  color: var(--text-main);
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 25px var(--glass-shadow);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(212, 167, 44, 0.4);
-  box-shadow: 0 10px 25px rgba(0, 91, 61, 0.1);
+  border-color: var(--border-glow);
+  box-shadow: 0 10px 30px rgba(0, 200, 117, 0.15);
 }
 
 /* Custom Scrollbar */
@@ -114,12 +111,12 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-color);
+  background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #005B3D;
+  background: var(--button-primary);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4A72C;
+  background: var(--accent-gold);
 }

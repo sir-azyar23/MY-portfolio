@@ -1,20 +1,21 @@
 import { motion } from 'framer-motion';
-import { Briefcase, Mail } from 'lucide-react';
+import { 
+  Briefcase, 
+  Mail, 
+  ArrowRight, 
+  Globe, 
+  Smartphone, 
+  Palette, 
+  Layers, 
+  Monitor, 
+  GraduationCap, 
+  Trophy 
+} from 'lucide-react';
+import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import profileImg from '../assets/profile.jpeg';
 
-const ROLES = [
-  "Software Developer",
-  "UI/UX Designer",
-  "Web Developer",
-  "Digital Solutions Developer"
-];
-
 export default function Home() {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [text, setText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
   const navigate = useNavigate();
 
   const handleWorkExperienceClick = (e) => {
@@ -33,153 +34,237 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    const currentRole = ROLES[roleIndex];
-    const updateText = () => {
-      if (isDeleting) {
-        setText(currentRole.substring(0, text.length - 1));
-        if (text.length === 0) {
-          setIsDeleting(false);
-          setRoleIndex((prev) => (prev + 1) % ROLES.length);
-        }
-      } else {
-        setText(currentRole.substring(0, text.length + 1));
-        if (text.length === currentRole.length) {
-          setTimeout(() => setIsDeleting(true), 1500);
-        }
-      }
-    };
-
-    const timer = setTimeout(updateText, isDeleting ? 50 : 100);
-    return () => clearTimeout(timer);
-  }, [text, isDeleting, roleIndex]);
-
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="min-h-[80vh] flex items-center justify-center px-6 md:px-12 py-8"
-    >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div className="relative min-h-[calc(100vh-6rem)] flex items-center justify-center px-4 sm:px-6 md:px-12 py-6 overflow-hidden">
+      
+      {/* Floating Vertical Social Bar on Left (Visible on desktop/tablet) */}
+      <div className="hidden lg:flex flex-col gap-3 fixed left-6 top-1/2 -translate-y-1/2 z-40">
+        <div className="flex flex-col gap-3 p-2 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-[0_8px_30px_var(--glass-shadow)] backdrop-blur-xl">
+          <a 
+            href="https://github.com/sir-azyar23" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="w-10 h-10 rounded-xl flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--accent-gold)] hover:bg-[var(--surface-2)] transition-all"
+            aria-label="GitHub"
+          >
+            <FaGithub size={18} />
+          </a>
+          <a 
+            href="https://linkedin.com" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="w-10 h-10 rounded-xl flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--accent-gold)] hover:bg-[var(--surface-2)] transition-all"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedinIn size={18} />
+          </a>
+          <a 
+            href="https://instagram.com/zubeyr_Amy" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="w-10 h-10 rounded-xl flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--accent-gold)] hover:bg-[var(--surface-2)] transition-all"
+            aria-label="Instagram"
+          >
+            <FaInstagram size={18} />
+          </a>
+          <a 
+            href="mailto:zubeirame11@gmail.com" 
+            className="w-10 h-10 rounded-xl flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--accent-gold)] hover:bg-[var(--surface-2)] transition-all"
+            aria-label="Email"
+          >
+            <Mail size={18} />
+          </a>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
         
-        {/* Left Column: Text & CTAs */}
+        {/* Left Column: Hero Content (Takes 7 cols on lg screens) */}
         <motion.div
-          initial={{ x: -40, opacity: 0 }}
+          initial={{ x: -30, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col gap-6"
+          transition={{ duration: 0.7 }}
+          className="lg:col-span-7 flex flex-col gap-5 text-left"
         >
-          {/* Top Badge */}
-          <div className="inline-block px-4 py-2 rounded-full bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#D4A72C]/40 w-fit max-w-full shadow-sm">
-            <span className="text-[#005B3D] dark:text-[#E7C766] font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-1.5">
-              <span className="text-[#D4A72C]">✦</span> COMPUTER SCIENCE • SOFTWARE DEVELOPMENT
+          {/* Top Badge: ✦ COMPUTER SCIENCE • SOFTWARE DEVELOPMENT */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--badge-bg)] border border-[var(--badge-border)] w-fit shadow-sm">
+            <span className="text-[var(--accent-gold)] text-xs">✦</span>
+            <span className="text-[var(--badge-text)] font-semibold text-xs tracking-wider uppercase font-mono">
+              COMPUTER SCIENCE • SOFTWARE DEVELOPMENT
             </span>
           </div>
 
-          {/* Heading & Profession Typing */}
-          <h1 className="text-5xl md:text-7xl font-poppins font-bold leading-tight text-[var(--text-main)]">
-            Hi, I'm <span className="text-[#005B3D] dark:text-[#D4A72C]">Zubeir</span>
-            <br />
-            <span className="text-3xl md:text-4xl font-space text-[#087A4B] dark:text-[#E7C766]">
-              <span className="min-w-[20px] inline-block">{text}</span>
-              <span className="animate-pulse text-[#D4A72C]">|</span>
-            </span>
+          {/* Main Heading: Hi, I'm Zubeyr */}
+          <h1 className="text-4xl sm:text-6xl xl:text-7xl font-poppins font-extrabold leading-tight text-[var(--text-primary)] tracking-tight">
+            Hi, I'm <span className="text-[var(--accent-gold)]">Zubeyr</span>
           </h1>
 
-          {/* Introduction Description */}
-          <p className="text-[var(--text-muted)] font-inter text-lg max-w-lg leading-relaxed">
-            Computer Science graduate and software developer focused on building modern web applications, software systems, intuitive UI/UX, and practical digital solutions.
+          {/* Subtitle: Software Developer & UI/UX Designer */}
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-poppins font-bold text-[var(--text-primary)] -mt-2">
+            Software Developer &amp; <span className="text-[var(--accent-gold)]">UI/UX Designer</span>
+          </h2>
+
+          {/* Description Paragraph */}
+          <p className="text-[var(--text-secondary)] font-inter text-base sm:text-lg max-w-xl leading-relaxed">
+            Computer Science graduate and passionate software developer focused on building modern web applications, software systems, intuitive UI/UX, and practical digital solutions.
           </p>
 
-          {/* Skill Badges */}
+          {/* Skill Badges (Pill shape with icons) */}
           <div className="flex flex-wrap gap-2.5 mt-1">
-            {["Web Apps", "Android Apps", "UI Design", "Software Systems"].map((tag) => (
-              <span 
-                key={tag} 
-                className="text-xs font-mono font-medium text-[#005B3D] dark:text-[#E7C766] bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#DDE9E3] dark:border-[#005B3D]/50 px-3.5 py-1.5 rounded-full hover:border-[#D4A72C] transition-colors"
-              >
-                {tag}
-              </span>
-            ))}
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[var(--badge-bg)] border border-[var(--badge-border)] text-xs font-mono font-medium text-[var(--badge-text)] shadow-sm">
+              <Globe size={13} className="text-[var(--accent)]" /> Web Apps
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[var(--badge-bg)] border border-[var(--badge-border)] text-xs font-mono font-medium text-[var(--badge-text)] shadow-sm">
+              <Smartphone size={13} className="text-[var(--accent)]" /> Android Apps
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[var(--badge-bg)] border border-[var(--badge-border)] text-xs font-mono font-medium text-[var(--badge-text)] shadow-sm">
+              <Palette size={13} className="text-[var(--accent)]" /> UI/UX Design
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[var(--badge-bg)] border border-[var(--badge-border)] text-xs font-mono font-medium text-[var(--badge-text)] shadow-sm">
+              <Layers size={13} className="text-[var(--accent)]" /> Software Systems
+            </span>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap gap-4 mt-3">
+          {/* Action CTA Buttons */}
+          <div className="flex flex-wrap gap-4 mt-2">
             <Link 
               to="/contact" 
-              className="px-8 py-3.5 rounded-2xl bg-[#005B3D] text-white font-medium hover:bg-[#087A4B] transition-all flex items-center gap-2.5 shadow-lg shadow-[#005B3D]/20 border border-[#D4A72C]/40 hover:-translate-y-0.5"
+              className="px-7 py-3.5 rounded-2xl bg-[var(--button-primary)] hover:bg-[var(--button-primary-hover)] text-[var(--button-primary-text)] font-semibold transition-all flex items-center gap-2.5 border border-[var(--accent-gold)]/60 shadow-[0_0_20px_rgba(0,200,117,0.35)] hover:shadow-[0_0_30px_rgba(0,200,117,0.55)] hover:-translate-y-0.5 group"
             >
-              <Mail size={19} className="text-[#D4A72C]" />
-              Contact Me
+              <Mail size={18} className="text-[var(--accent-gold)]" />
+              <span>Contact Me</span>
+              <ArrowRight size={18} className="text-white group-hover:translate-x-1 transition-transform" />
             </Link>
+
             <button 
               onClick={handleWorkExperienceClick}
-              className="px-8 py-3.5 rounded-2xl bg-white dark:bg-[#0A261D] text-[#005B3D] dark:text-white font-medium border-2 border-[#D4A72C] hover:bg-[#F5E7B9]/40 dark:hover:bg-[#005B3D]/30 transition-all flex items-center gap-2.5 shadow-sm hover:-translate-y-0.5"
+              className="px-7 py-3.5 rounded-2xl bg-[var(--button-secondary)] hover:bg-[var(--button-secondary-hover)] text-[var(--button-secondary-text)] font-semibold border border-[var(--accent-gold)]/70 hover:border-[var(--accent-gold)] transition-all flex items-center gap-2.5 shadow-sm hover:-translate-y-0.5 group backdrop-blur-md"
             >
-              <Briefcase size={19} className="text-[#005B3D] dark:text-[#E7C766]" />
-              Work Experience
+              <Briefcase size={18} className="text-[var(--accent-gold)]" />
+              <span>Work Experience</span>
+              <ArrowRight size={18} className="text-[var(--accent-gold)] group-hover:translate-x-1 transition-transform" />
             </button>
+          </div>
+
+          {/* Stat Cards (3 Cards below CTA buttons matching reference) */}
+          <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-4 pt-3 max-w-lg">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-md flex flex-col justify-center gap-1 hover:border-[var(--border-glow)] transition-all">
+              <div className="text-[var(--accent)] mb-0.5">
+                <GraduationCap size={20} />
+              </div>
+              <span className="text-lg sm:text-xl font-poppins font-bold text-[var(--text-primary)]">3+</span>
+              <span className="text-[11px] sm:text-xs text-[var(--text-muted)] font-inter leading-tight">Years Learning</span>
+            </div>
+
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-md flex flex-col justify-center gap-1 hover:border-[var(--border-glow)] transition-all">
+              <div className="text-[var(--accent-gold)] font-mono font-bold text-sm mb-0.5">&lt;/&gt;</div>
+              <span className="text-lg sm:text-xl font-poppins font-bold text-[var(--text-primary)]">3+</span>
+              <span className="text-[11px] sm:text-xs text-[var(--text-muted)] font-inter leading-tight">Projects Built</span>
+            </div>
+
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-md flex flex-col justify-center gap-1 hover:border-[var(--border-glow)] transition-all">
+              <div className="text-[var(--accent-gold)] mb-0.5">
+                <Trophy size={20} />
+              </div>
+              <span className="text-base sm:text-lg font-poppins font-bold text-[var(--text-primary)] leading-snug">Continuous</span>
+              <span className="text-[11px] sm:text-xs text-[var(--text-muted)] font-inter leading-tight">Growth</span>
+            </div>
           </div>
         </motion.div>
 
-        {/* Right Column: Profile Image & Floating Badges */}
+        {/* Right Column: Circular Glowing Hero Frame with Orbiting Info Badges (Takes 5 cols on lg screens) */}
         <motion.div
-          initial={{ scale: 0.85, opacity: 0 }}
+          initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative flex justify-center items-center py-6"
+          className="lg:col-span-5 relative flex justify-center items-center py-10"
         >
-          {/* Subtle background glow */}
-          <div className="absolute w-[320px] h-[320px] md:w-[460px] md:h-[460px] bg-gradient-to-tr from-[#005B3D]/20 to-[#D4A72C]/20 rounded-full blur-2xl pointer-events-none" />
+          {/* Subtle Outer Background Glow */}
+          <div className="absolute w-[360px] h-[360px] sm:w-[460px] sm:h-[460px] bg-[var(--accent)]/15 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Image Container with Gold & Emerald Dual Border */}
-          <div className="w-[290px] h-[290px] md:w-[430px] md:h-[430px] rounded-full overflow-hidden border-4 border-[#005B3D] ring-4 ring-[#D4A72C]/40 relative shadow-2xl bg-[#F3FAF6]">
-            <img
-              src={profileImg}
-              alt="Zubeir Profile"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.target.style.display = 'none';
-                e.target.nextElementSibling.style.display = 'flex';
-              }}
-            />
-            <div className="w-full h-full bg-gradient-to-tr from-[#003D2B] via-[#005B3D] to-[#087A4B] animate-pulse rounded-full flex items-center justify-center hidden">
-              <span className="text-6xl text-white font-poppins font-bold mix-blend-overlay">ZAZ</span>
+          {/* Central Circular Photo Frame */}
+          <div className="relative w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] flex items-center justify-center">
+            
+            {/* Outer Gold Glowing Orbit Ring with Dot Accent */}
+            <div className="absolute inset-[-14px] rounded-full border border-[var(--accent-gold)]/40 shadow-[0_0_25px_rgba(229,184,66,0.25)]" />
+            <div className="absolute -top-3 right-10 w-2.5 h-2.5 rounded-full bg-[var(--accent-gold)] shadow-[0_0_10px_var(--accent-gold)] animate-pulse" />
+            <div className="absolute bottom-6 -left-2 w-2 h-2 rounded-full bg-[var(--accent)] shadow-[0_0_8px_var(--accent)]" />
+
+            {/* Inner Emerald Frame */}
+            <div className="w-full h-full rounded-full overflow-hidden border-4 border-[var(--accent)] shadow-[0_0_40px_rgba(0,200,117,0.35)] relative bg-[#021811]">
+              <img
+                src={profileImg}
+                alt="Zubeyr Profile"
+                className="w-full h-full object-cover object-center"
+              />
             </div>
           </div>
 
-          {/* Floating badge 1: UI / UX Design */}
+          {/* 4 Floating Glass Info Cards Orbiting Around Frame (Matching reference image) */}
+          
+          {/* Badge 1: Top Left - Clean Code / Best Practices */}
           <motion.div
-            animate={{ y: [-8, 8, -8], rotate: [-1, 1, -1] }}
+            animate={{ y: [-5, 5, -5] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="absolute top-2 right-0 md:right-2 glass-card px-4 py-3 rounded-2xl flex items-center gap-2.5 shadow-md border-l-4 border-l-[#D4A72C]"
+            className="absolute -top-2 left-0 sm:-left-4 p-2.5 sm:p-3 rounded-2xl bg-[var(--surface)] border border-[var(--border-glow)] shadow-[0_8px_25px_var(--glass-shadow)] backdrop-blur-xl flex items-center gap-2.5 z-20"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-[#D4A72C] animate-pulse" />
-            <span className="text-[#005B3D] dark:text-[#E7C766] font-bold font-space text-xs sm:text-sm">UI / UX Design</span>
+            <div className="w-8 h-8 rounded-xl bg-[var(--surface-solid)] border border-[var(--border)] flex items-center justify-center text-[var(--accent)]">
+              <span className="font-mono font-bold text-xs">&lt;/&gt;</span>
+            </div>
+            <div className="text-left">
+              <div className="text-xs sm:text-sm font-poppins font-bold text-[var(--text-primary)]">Clean Code</div>
+              <div className="text-[10px] text-[var(--text-muted)] font-inter">Best Practices</div>
+            </div>
           </motion.div>
 
-          {/* Floating badge 2: Digital Solutions */}
+          {/* Badge 2: Top Right - Modern / Technologies */}
           <motion.div
-            animate={{ y: [8, -8, 8], rotate: [1, -1, 1] }}
-            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-            className="absolute bottom-2 left-0 md:left-2 glass-card px-4 py-3 rounded-2xl flex items-center gap-2.5 shadow-md border-l-4 border-l-[#005B3D]"
+            animate={{ y: [5, -5, 5] }}
+            transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
+            className="absolute -top-2 right-0 sm:-right-4 p-2.5 sm:p-3 rounded-2xl bg-[var(--surface)] border border-[var(--border-glow)] shadow-[0_8px_25px_var(--glass-shadow)] backdrop-blur-xl flex items-center gap-2.5 z-20"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-[#087A4B] animate-pulse" />
-            <span className="text-[var(--text-main)] font-bold font-space text-xs sm:text-sm">Digital Solutions</span>
+            <div className="w-8 h-8 rounded-xl bg-[var(--surface-solid)] border border-[var(--border)] flex items-center justify-center text-[var(--accent-gold)]">
+              <Monitor size={16} />
+            </div>
+            <div className="text-left">
+              <div className="text-xs sm:text-sm font-poppins font-bold text-[var(--text-primary)]">Modern</div>
+              <div className="text-[10px] text-[var(--text-muted)] font-inter">Technologies</div>
+            </div>
           </motion.div>
 
-          {/* Floating badge 3: Software Systems */}
+          {/* Badge 3: Bottom Left - Software Systems / Scalable Solutions */}
+          <motion.div
+            animate={{ y: [6, -6, 6] }}
+            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+            className="absolute -bottom-4 left-0 sm:-left-4 p-2.5 sm:p-3 rounded-2xl bg-[var(--surface)] border border-[var(--border-glow)] shadow-[0_8px_25px_var(--glass-shadow)] backdrop-blur-xl flex items-center gap-2.5 z-20"
+          >
+            <div className="w-8 h-8 rounded-xl bg-[var(--surface-solid)] border border-[var(--border)] flex items-center justify-center text-[var(--accent-gold)]">
+              <Layers size={16} />
+            </div>
+            <div className="text-left">
+              <div className="text-xs sm:text-sm font-poppins font-bold text-[var(--text-primary)]">Software Systems</div>
+              <div className="text-[10px] text-[var(--text-muted)] font-inter">Scalable Solutions</div>
+            </div>
+          </motion.div>
+
+          {/* Badge 4: Mid/Bottom Right - UI/UX Design / User Centered */}
           <motion.div
             animate={{ y: [-6, 6, -6] }}
-            transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
-            className="absolute top-1/2 -right-4 md:-right-6 glass-card px-3.5 py-2 rounded-xl flex items-center gap-2 hidden md:flex shadow-md border-l-4 border-l-[#0B8A55]"
+            transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }}
+            className="absolute top-1/2 -right-2 sm:-right-8 -translate-y-1/2 p-2.5 sm:p-3 rounded-2xl bg-[var(--surface)] border border-[var(--border-glow)] shadow-[0_8px_25px_var(--glass-shadow)] backdrop-blur-xl flex items-center gap-2.5 z-20"
           >
-            <span className="w-2 h-2 rounded-full bg-[#0B8A55]" />
-            <span className="text-[var(--text-light)] font-space text-xs font-semibold">Software Systems</span>
+            <div className="w-8 h-8 rounded-xl bg-[var(--surface-solid)] border border-[var(--border)] flex items-center justify-center text-[var(--accent-gold)]">
+              <Palette size={16} />
+            </div>
+            <div className="text-left">
+              <div className="text-xs sm:text-sm font-poppins font-bold text-[var(--text-primary)]">UI/UX Design</div>
+              <div className="text-[10px] text-[var(--text-muted)] font-inter">User Centered</div>
+            </div>
           </motion.div>
+
         </motion.div>
+
       </div>
-    </motion.div>
+    </div>
   );
 }

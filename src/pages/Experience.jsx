@@ -57,7 +57,7 @@ const timelineData = [
           Successfully completed Industrial Field Training at the Zanzibar Revenue Authority (ZRA), where I gained valuable practical experience in software development, teamwork, problem-solving, and professional workplace practices.
         </p>
         <p>
-          During the internship, I designed and developed a complete <strong className="text-[#005B3D] dark:text-[#E7C766] font-semibold">ZRA Help Desk System</strong> to improve IT support and issue management within the organization.
+          During the internship, I designed and developed a complete <strong className="text-[var(--accent-gold)] font-semibold">ZRA Help Desk System</strong> to improve IT support and issue management within the organization.
         </p>
         <p>
           After successfully completing the internship, I received an official Internship Completion Letter in recognition of my performance.
@@ -250,41 +250,42 @@ export default function Experience() {
       {/* SECTION 1: EXPERIENCE TIMELINE */}
       <div id="work-experience" className="max-w-4xl mx-auto mb-24">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#D4A72C]/40 mb-3 shadow-sm">
-            <span className="text-[#005B3D] dark:text-[#E7C766] font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-1.5">
-              <span className="text-[#D4A72C]">✦</span> CAREER PROGRESSION
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--badge-bg)] border border-[var(--badge-border)] mb-3 shadow-sm">
+            <span className="text-[var(--accent-gold)] text-xs">✦</span>
+            <span className="text-[var(--badge-text)] font-semibold text-xs tracking-wider uppercase font-mono">
+              CAREER PROGRESSION
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-poppins font-bold text-[#005B3D] dark:text-white mb-4">
-            Work <span className="text-[#D4A72C]">Experience</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-[var(--text-primary)] mb-4 tracking-tight">
+            Work <span className="text-[var(--accent-gold)]">Experience</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#005B3D] via-[#087A4B] to-[#D4A72C] mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-[var(--button-primary)] via-[var(--accent)] to-[var(--accent-gold)] mx-auto rounded-full"></div>
         </div>
 
-        <div className="relative border-l-2 border-[#005B3D] pl-8 ml-4 md:ml-0">
+        <div className="relative border-l-2 border-[var(--button-primary)] pl-8 ml-4 md:ml-0">
           {timelineData.map((item, index) => {
             const IconComponent = item.icon;
             return (
               <motion.div key={index} variants={itemVariants} className="mb-12 relative">
-                <div className="absolute -left-[43px] top-0 w-10 h-10 rounded-full bg-[#005B3D] border-2 border-white ring-4 ring-[#D4A72C]/30 flex items-center justify-center shadow-lg">
-                  <IconComponent size={18} className="text-[#D4A72C]" />
+                <div className="absolute -left-[43px] top-0 w-10 h-10 rounded-full bg-[var(--button-primary)] border-2 border-[var(--surface-solid)] ring-4 ring-[var(--accent-gold)]/30 flex items-center justify-center shadow-lg">
+                  <IconComponent size={18} className="text-[var(--accent-gold)]" />
                 </div>
                 
-                <div className="glass-card p-6 md:p-8 rounded-3xl relative hover:border-[#D4A72C]/60 hover:shadow-xl transition-all">
+                <div className="glass-card p-6 md:p-8 rounded-3xl relative hover:border-[var(--border-glow)] hover:shadow-xl transition-all">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
                     <div>
-                      <h3 className="text-2xl font-poppins font-bold text-[#005B3D] dark:text-white">{item.title}</h3>
-                      <h4 className="text-lg text-[#087A4B] dark:text-[#E7C766] font-inter font-medium mt-1">{item.organization}</h4>
+                      <h3 className="text-2xl font-poppins font-bold text-[var(--text-primary)]">{item.title}</h3>
+                      <h4 className="text-lg text-[var(--accent-gold)] font-inter font-medium mt-1">{item.organization}</h4>
                     </div>
                     <div className="flex flex-col items-start md:items-end gap-1 mt-2 md:mt-0">
-                      <span className="text-[#005B3D] dark:text-[#E7C766] font-mono font-medium bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#DDE9E3] px-3 py-1 rounded-full text-xs whitespace-nowrap">
+                      <span className="text-[var(--badge-text)] font-mono font-medium bg-[var(--badge-bg)] border border-[var(--badge-border)] px-3 py-1 rounded-full text-xs whitespace-nowrap">
                         {item.badge}
                       </span>
                       <span className="text-xs text-[var(--text-muted)] font-mono">{item.period}</span>
                     </div>
                   </div>
                   
-                  <div className="text-[var(--text-muted)] font-inter leading-relaxed mt-4">
+                  <div className="text-[var(--text-secondary)] font-inter leading-relaxed mt-4">
                     {item.description}
                   </div>
                 </div>
@@ -297,15 +298,16 @@ export default function Experience() {
       {/* SECTION 2: EDUCATION & CERTIFICATIONS */}
       <div>
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#D4A72C]/40 mb-3 shadow-sm">
-            <span className="text-[#005B3D] dark:text-[#E7C766] font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-1.5">
-              <span className="text-[#D4A72C]">✦</span> ACADEMIC & CREDENTIALS
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--badge-bg)] border border-[var(--badge-border)] mb-3 shadow-sm">
+            <span className="text-[var(--accent-gold)] text-xs">✦</span>
+            <span className="text-[var(--badge-text)] font-semibold text-xs tracking-wider uppercase font-mono">
+              ACADEMIC & CREDENTIALS
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-poppins font-bold text-[#005B3D] dark:text-white mb-4">
-            Education & <span className="text-[#D4A72C]">Certifications</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-[var(--text-primary)] mb-4 tracking-tight">
+            Education &amp; <span className="text-[var(--accent-gold)]">Certifications</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#005B3D] via-[#087A4B] to-[#D4A72C] mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-[var(--button-primary)] via-[var(--accent)] to-[var(--accent-gold)] mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -313,15 +315,15 @@ export default function Experience() {
           {/* LEFT SIDE: EDUCATION */}
           <motion.div variants={itemVariants} className="lg:col-span-5 flex flex-col gap-6">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-[#005B3D] text-[#D4A72C] flex items-center justify-center border border-[#D4A72C]/30 shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-[var(--surface-2)] text-[var(--accent-gold)] flex items-center justify-center border border-[var(--border)] shadow-sm">
                 <GraduationCap size={22} />
               </div>
-              <h3 className="text-2xl font-poppins font-bold text-[#005B3D] dark:text-white">Education</h3>
+              <h3 className="text-2xl font-poppins font-bold text-[var(--text-primary)]">Education</h3>
             </div>
 
-            <div className="glass-card p-8 rounded-3xl relative overflow-hidden hover:border-[#D4A72C]/60 transition-all shadow-sm">
+            <div className="glass-card p-8 rounded-3xl relative overflow-hidden hover:border-[var(--border-glow)] transition-all shadow-sm">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                <span className="text-xs font-mono font-medium text-[#005B3D] dark:text-[#E7C766] bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#DDE9E3] px-3 py-1 rounded-full">
+                <span className="text-xs font-mono font-medium text-[var(--badge-text)] bg-[var(--badge-bg)] border border-[var(--badge-border)] px-3 py-1 rounded-full">
                   Computer Science Graduate
                 </span>
                 <span className="text-xs text-[var(--text-muted)] font-mono flex items-center gap-1">
@@ -329,22 +331,22 @@ export default function Experience() {
                 </span>
               </div>
 
-              <h4 className="text-2xl font-poppins font-bold text-[#005B3D] dark:text-white mb-2">
+              <h4 className="text-2xl font-poppins font-bold text-[var(--text-primary)] mb-2">
                 Bachelor of Computer Science
               </h4>
-              <p className="text-[#087A4B] dark:text-[#E7C766] font-inter font-semibold text-lg mb-6">
+              <p className="text-[var(--accent-gold)] font-inter font-semibold text-lg mb-6">
                 State University of Zanzibar (SUZA)
               </p>
 
-              <div className="border-t border-[var(--border-light)] pt-6">
-                <p className="text-[var(--text-muted)] font-inter leading-relaxed text-sm">
-                  Graduated with a Bachelor's Degree in Computer Science from the State University of Zanzibar (SUZA), focusing on Software Engineering, Web Development, Mobile Application Development, Database Systems, Algorithms, System Analysis & Design, Artificial Intelligence, and Software Architecture.
+              <div className="border-t border-[var(--border)] pt-6">
+                <p className="text-[var(--text-secondary)] font-inter leading-relaxed text-sm">
+                  Graduated with a Bachelor's Degree in Computer Science from the State University of Zanzibar (SUZA), focusing on Software Engineering, Web Development, Mobile Application Development, Database Systems, Algorithms, System Analysis &amp; Design, Artificial Intelligence, and Software Architecture.
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-6">
                 {["Software Engineering", "Web Dev", "Mobile Apps", "Database Systems", "AI & Architecture"].map((tag, i) => (
-                  <span key={i} className="text-[11px] font-mono font-medium text-[#005B3D] dark:text-[#E7C766] bg-[#DFF3E9] dark:bg-[#005B3D]/20 border border-[#DDE9E3] px-2.5 py-1 rounded-md">
+                  <span key={i} className="text-[11px] font-mono font-medium text-[var(--badge-text)] bg-[var(--badge-bg)] border border-[var(--badge-border)] px-2.5 py-1 rounded-md">
                     {tag}
                   </span>
                 ))}
@@ -355,10 +357,10 @@ export default function Experience() {
           {/* RIGHT SIDE: CERTIFICATIONS */}
           <motion.div variants={itemVariants} className="lg:col-span-7 flex flex-col gap-6">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-[#005B3D] text-[#D4A72C] flex items-center justify-center border border-[#D4A72C]/30 shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-[var(--surface-2)] text-[var(--accent-gold)] flex items-center justify-center border border-[var(--border)] shadow-sm">
                 <Award size={22} />
               </div>
-              <h3 className="text-2xl font-poppins font-bold text-[#005B3D] dark:text-white">Certifications & Achievements</h3>
+              <h3 className="text-2xl font-poppins font-bold text-[var(--text-primary)]">Certifications &amp; Achievements</h3>
             </div>
 
             <div className="grid grid-cols-1 gap-5">
@@ -367,41 +369,41 @@ export default function Experience() {
                 return (
                   <div 
                     key={cert.id}
-                    className="glass-card p-6 rounded-2xl border border-[var(--border-light)] hover:border-[#D4A72C]/60 hover:-translate-y-0.5 transition-all duration-300 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 group shadow-sm"
+                    className="glass-card p-6 rounded-2xl hover:border-[var(--border-glow)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 group shadow-sm"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#D4A72C]/30 flex items-center justify-center shrink-0 group-hover:bg-[#005B3D] transition-colors">
-                        <CertIcon size={22} className="text-[#005B3D] dark:text-[#E7C766] group-hover:text-[#D4A72C] transition-colors" />
+                      <div className="w-12 h-12 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] flex items-center justify-center shrink-0 group-hover:bg-[var(--button-primary)] transition-colors">
+                        <CertIcon size={22} className="text-[var(--accent-gold)] group-hover:text-white transition-colors" />
                       </div>
                       <div>
                         <div className="flex flex-wrap items-center gap-2 mb-1">
-                          <h4 className="text-lg font-poppins font-bold text-[#005B3D] dark:text-white">{cert.title}</h4>
-                          <span className="text-[10px] font-mono text-[#005B3D] dark:text-[#E7C766] bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#DDE9E3] px-2 py-0.5 rounded-full">
+                          <h4 className="text-lg font-poppins font-bold text-[var(--text-primary)]">{cert.title}</h4>
+                          <span className="text-[10px] font-mono text-[var(--badge-text)] bg-[var(--badge-bg)] border border-[var(--badge-border)] px-2 py-0.5 rounded-full">
                             {cert.badge}
                           </span>
                         </div>
-                        <p className="text-sm text-[#087A4B] dark:text-[#E7C766] font-inter">{cert.organization} • <span className="text-xs text-[var(--text-muted)] font-mono">{cert.date}</span></p>
+                        <p className="text-sm text-[var(--accent-gold)] font-inter">{cert.organization} • <span className="text-xs text-[var(--text-muted)] font-mono">{cert.date}</span></p>
                         <p className="text-xs text-[var(--text-muted)] font-inter mt-2 line-clamp-2">{cert.description}</p>
                       </div>
                     </div>
 
                     <button 
                       onClick={() => openModal(cert)}
-                      className="shrink-0 text-xs font-inter font-medium text-white bg-[#087A4B] hover:bg-[#005B3D] border border-[#D4A72C]/30 px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 w-full sm:w-auto justify-center shadow-sm"
+                      className="shrink-0 text-xs font-inter font-medium text-[var(--button-primary-text)] bg-[var(--button-primary)] hover:bg-[var(--button-primary-hover)] border border-[var(--accent-gold)]/50 px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 w-full sm:w-auto justify-center shadow-sm"
                     >
-                      <Eye size={14} className="text-[#D4A72C]" /> View Certificate
+                      <Eye size={14} className="text-[var(--accent-gold)]" /> View Certificate
                     </button>
                   </div>
                 );
               })}
 
               {/* FUTURE READY CARD */}
-              <div className="glass-card p-6 rounded-2xl border border-dashed border-[#005B3D]/40 hover:border-[#D4A72C] transition-colors flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-[#DFF3E9] dark:bg-[#005B3D]/30 flex items-center justify-center shrink-0 border border-[#D4A72C]/30">
-                  <Sparkles size={22} className="text-[#D4A72C] animate-pulse" />
+              <div className="glass-card p-6 rounded-2xl border border-dashed border-[var(--border)] hover:border-[var(--accent-gold)] transition-colors flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-xl bg-[var(--surface-2)] flex items-center justify-center shrink-0 border border-[var(--border)]">
+                  <Sparkles size={22} className="text-[var(--accent-gold)] animate-pulse" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-poppins font-bold text-[#005B3D] dark:text-white">More Certifications Coming Soon</h4>
+                  <h4 className="text-lg font-poppins font-bold text-[var(--text-primary)]">More Certifications Coming Soon</h4>
                   <p className="text-xs text-[var(--text-muted)] font-inter mt-1 leading-relaxed">
                     I am passionate about continuous learning and regularly improving my technical skills through professional certifications, workshops, hackathons, and technology training.
                   </p>
@@ -423,29 +425,29 @@ export default function Experience() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="bg-[#003D2B] text-white rounded-3xl max-w-5xl w-full h-[90vh] flex flex-col border border-[#D4A72C]/40 shadow-2xl overflow-hidden relative"
+              className="bg-[var(--bg)] text-[var(--text-primary)] rounded-3xl max-w-5xl w-full h-[90vh] flex flex-col border border-[var(--accent-gold)]/40 shadow-2xl overflow-hidden relative"
             >
               {/* MODAL HEADER METADATA */}
-              <div className="p-4 md:p-6 bg-[#004730] border-b border-emerald-800/80 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shrink-0">
+              <div className="p-4 md:p-6 bg-[var(--surface-2)] border-b border-[var(--border)] flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shrink-0">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#005B3D] border border-[#D4A72C]/40 flex items-center justify-center shrink-0">
-                    <Award size={24} className="text-[#D4A72C]" />
+                  <div className="w-12 h-12 rounded-2xl bg-[var(--surface)] border border-[var(--accent-gold)]/40 flex items-center justify-center shrink-0">
+                    <Award size={24} className="text-[var(--accent-gold)]" />
                   </div>
                   <div>
-                    <h3 className="text-lg md:text-xl font-poppins font-bold text-white flex items-center gap-2 flex-wrap">
+                    <h3 className="text-lg md:text-xl font-poppins font-bold text-[var(--text-primary)] flex items-center gap-2 flex-wrap">
                       {selectedCert.title}
-                      <span className="text-[10px] font-mono text-[#D4A72C] bg-[#005B3D] border border-[#D4A72C]/30 px-2.5 py-0.5 rounded-full">
+                      <span className="text-[10px] font-mono text-[var(--badge-text)] bg-[var(--badge-bg)] border border-[var(--badge-border)] px-2.5 py-0.5 rounded-full">
                         {selectedCert.badge}
                       </span>
                     </h3>
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-emerald-100/70 font-inter mt-1">
-                      <span className="text-[#E7C766] font-medium">{selectedCert.organization}</span>
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-[var(--text-muted)] font-inter mt-1">
+                      <span className="text-[var(--accent-gold)] font-medium">{selectedCert.organization}</span>
                       <span>•</span>
                       <span>{selectedCert.date}</span>
                       {selectedCert.credentialId && (
                         <>
                           <span>•</span>
-                          <span className="font-mono text-emerald-200">ID: {selectedCert.credentialId}</span>
+                          <span className="font-mono text-[var(--text-secondary)]">ID: {selectedCert.credentialId}</span>
                         </>
                       )}
                     </div>
@@ -455,7 +457,7 @@ export default function Experience() {
                 {/* CLOSE BUTTON */}
                 <button 
                   onClick={closeModal}
-                  className="absolute top-4 right-4 md:static p-2.5 rounded-full bg-[#005B3D] hover:bg-[#087A4B] text-white transition-all border border-[#D4A72C]/30"
+                  className="absolute top-4 right-4 md:static p-2.5 rounded-full bg-[var(--surface)] hover:bg-[var(--surface-2)] text-[var(--text-primary)] transition-all border border-[var(--border)]"
                   title="Close Modal"
                 >
                   <X size={20} />
@@ -463,25 +465,25 @@ export default function Experience() {
               </div>
 
               {/* TOOLBAR CONTROLS */}
-              <div className="px-4 py-3 bg-[#003525] border-b border-emerald-900 flex flex-wrap items-center justify-between gap-3 text-xs font-mono shrink-0">
+              <div className="px-4 py-3 bg-[var(--surface)] border-b border-[var(--border)] flex flex-wrap items-center justify-between gap-3 text-xs font-mono shrink-0">
                 <div className="flex items-center gap-2">
                   <button 
                     onClick={handleZoomIn}
-                    className="p-2 rounded-lg bg-[#005B3D] border border-[#D4A72C]/30 hover:bg-[#087A4B] text-white transition-colors flex items-center gap-1"
+                    className="p-2 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] hover:border-[var(--accent-gold)] text-[var(--text-primary)] transition-colors flex items-center gap-1"
                     title="Zoom In"
                   >
                     <ZoomIn size={16} /> <span className="hidden sm:inline">Zoom In</span>
                   </button>
                   <button 
                     onClick={handleZoomOut}
-                    className="p-2 rounded-lg bg-[#005B3D] border border-[#D4A72C]/30 hover:bg-[#087A4B] text-white transition-colors flex items-center gap-1"
+                    className="p-2 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] hover:border-[var(--accent-gold)] text-[var(--text-primary)] transition-colors flex items-center gap-1"
                     title="Zoom Out"
                   >
                     <ZoomOut size={16} /> <span className="hidden sm:inline">Zoom Out</span>
                   </button>
                   <button 
                     onClick={handleResetZoom}
-                    className="p-2 rounded-lg bg-[#005B3D] border border-[#D4A72C]/30 hover:bg-[#087A4B] text-white transition-colors flex items-center gap-1"
+                    className="p-2 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] hover:border-[var(--accent-gold)] text-[var(--text-primary)] transition-colors flex items-center gap-1"
                     title="Fit to Screen"
                   >
                     <RotateCcw size={16} /> <span className="hidden sm:inline">Reset ({Math.round(zoomLevel * 100)}%)</span>
@@ -491,7 +493,7 @@ export default function Experience() {
                 <div className="flex items-center gap-2">
                   <button 
                     onClick={toggleFullscreen}
-                    className="p-2 rounded-lg bg-[#005B3D] border border-[#D4A72C]/30 hover:bg-[#087A4B] text-white transition-colors flex items-center gap-1"
+                    className="p-2 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] hover:border-[var(--accent-gold)] text-[var(--text-primary)] transition-colors flex items-center gap-1"
                     title="Full Screen"
                   >
                     {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
@@ -499,24 +501,24 @@ export default function Experience() {
                   </button>
                   <button 
                     onClick={handlePrint}
-                    className="p-2 rounded-lg bg-[#005B3D] border border-[#D4A72C]/30 hover:bg-[#087A4B] text-white transition-colors flex items-center gap-1"
+                    className="p-2 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] hover:border-[var(--accent-gold)] text-[var(--text-primary)] transition-colors flex items-center gap-1"
                     title="Print Certificate"
                   >
                     <Printer size={16} /> <span className="hidden sm:inline">Print</span>
                   </button>
                   <button 
                     onClick={handleDownload}
-                    className="p-2 rounded-lg bg-[#087A4B] hover:bg-[#005B3D] text-white font-semibold border border-[#D4A72C]/40 transition-colors flex items-center gap-1"
+                    className="p-2 rounded-lg bg-[var(--button-primary)] hover:bg-[var(--button-primary-hover)] text-[var(--button-primary-text)] font-semibold border border-[var(--accent-gold)]/40 transition-colors flex items-center gap-1"
                     title="Download Certificate"
                   >
-                    <Download size={16} className="text-[#D4A72C]" /> <span className="hidden sm:inline">Download</span>
+                    <Download size={16} className="text-[var(--accent-gold)]" /> <span className="hidden sm:inline">Download</span>
                   </button>
                 </div>
               </div>
 
               {/* CANVAS / VIEW AREA */}
               <div 
-                className="flex-1 overflow-auto p-4 flex items-center justify-center bg-[#00241A] relative cursor-grab active:cursor-grabbing"
+                className="flex-1 overflow-auto p-4 flex items-center justify-center bg-[var(--bg-secondary)] relative cursor-grab active:cursor-grabbing"
                 onMouseDown={handleMouseDown}
                 onMouseMove={handleMouseMove}
                 onMouseUp={handleMouseUp}
@@ -533,21 +535,21 @@ export default function Experience() {
                     <iframe
                       src={`${selectedCert.fileUrl}#toolbar=0&navpanes=0&scrollbar=0`}
                       title={selectedCert.title}
-                      className="w-[850px] h-[550px] max-w-[90vw] max-h-[72vh] rounded-xl shadow-2xl border border-[#D4A72C]/30 bg-white"
+                      className="w-[850px] h-[550px] max-w-[90vw] max-h-[72vh] rounded-xl shadow-2xl border border-[var(--accent-gold)]/30 bg-white"
                       onError={() => setPdfLoadError(true)}
                     />
                   ) : (
-                    <div className="flex flex-col items-center justify-center p-8 bg-[#003D2B] rounded-2xl border border-[#D4A72C]/30 text-center max-w-md">
-                      <FileText size={48} className="text-[#D4A72C] mb-4" />
-                      <h4 className="text-lg font-poppins font-bold text-white mb-2">Certificate Preview Unavailable</h4>
-                      <p className="text-xs text-emerald-100/70 mb-6 leading-relaxed">
+                    <div className="flex flex-col items-center justify-center p-8 bg-[var(--surface)] rounded-2xl border border-[var(--border)] text-center max-w-md">
+                      <FileText size={48} className="text-[var(--accent-gold)] mb-4" />
+                      <h4 className="text-lg font-poppins font-bold text-[var(--text-primary)] mb-2">Certificate Preview Unavailable</h4>
+                      <p className="text-xs text-[var(--text-muted)] mb-6 leading-relaxed">
                         Unable to render PDF preview directly in browser iframe. You can download or open the official certificate file.
                       </p>
                       <button 
                         onClick={handleDownload}
-                        className="px-5 py-2.5 bg-[#087A4B] text-white font-semibold rounded-xl text-xs flex items-center gap-2 hover:bg-[#005B3D] border border-[#D4A72C]/40 transition-colors"
+                        className="px-5 py-2.5 bg-[var(--button-primary)] text-[var(--button-primary-text)] font-semibold rounded-xl text-xs flex items-center gap-2 hover:bg-[var(--button-primary-hover)] border border-[var(--accent-gold)]/40 transition-colors"
                       >
-                        <Download size={16} className="text-[#D4A72C]" /> Download PDF Certificate
+                        <Download size={16} className="text-[var(--accent-gold)]" /> Download PDF Certificate
                       </button>
                     </div>
                   )}

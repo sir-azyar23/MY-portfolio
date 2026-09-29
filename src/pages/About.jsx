@@ -33,15 +33,16 @@ export default function About() {
     >
       {/* Header */}
       <motion.div variants={itemVariants} className="text-center mb-16">
-        <div className="inline-block px-4 py-1.5 rounded-full bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#D4A72C]/40 mb-3 shadow-sm">
-          <span className="text-[#005B3D] dark:text-[#E7C766] font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-1.5">
-            <span className="text-[#D4A72C]">✦</span> PASSIONATE SOFTWARE DEVELOPER
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--badge-bg)] border border-[var(--badge-border)] mb-3 shadow-sm">
+          <span className="text-[var(--accent-gold)] text-xs">✦</span>
+          <span className="text-[var(--badge-text)] font-semibold text-xs tracking-wider uppercase font-mono">
+            PASSIONATE SOFTWARE DEVELOPER
           </span>
         </div>
-        <h2 className="text-4xl md:text-5xl font-poppins font-bold text-[#005B3D] dark:text-white mb-4">
-          About <span className="text-[#D4A72C]">Me</span>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-[var(--text-primary)] mb-4 tracking-tight">
+          About <span className="text-[var(--accent-gold)]">Me</span>
         </h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-[#005B3D] via-[#087A4B] to-[#D4A72C] mx-auto rounded-full"></div>
+        <div className="w-20 h-1 bg-gradient-to-r from-[var(--button-primary)] via-[var(--accent)] to-[var(--accent-gold)] mx-auto rounded-full"></div>
       </motion.div>
 
       {/* Bio + Identity Grid */}
@@ -52,35 +53,35 @@ export default function About() {
           variants={itemVariants} 
           className="lg:col-span-3 glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden"
         >
-          <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#DFF3E9] dark:bg-[#005B3D]/20 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute -top-10 -right-10 w-40 h-40 bg-[var(--accent)]/15 rounded-full blur-2xl pointer-events-none" />
 
-          <h3 className="text-2xl font-poppins font-bold text-[#005B3D] dark:text-white mb-6 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#005B3D] text-[#D4A72C] flex items-center justify-center border border-[#D4A72C]/30 shadow-sm">
+          <h3 className="text-2xl font-poppins font-bold text-[var(--text-primary)] mb-6 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[var(--surface-2)] text-[var(--accent-gold)] flex items-center justify-center border border-[var(--border)] shadow-sm">
               <User size={20} />
             </div>
             Who I Am
           </h3>
 
-          <p className="text-[var(--text-light)] font-inter leading-relaxed mb-5">
-            Hello! I'm <span className="text-[#005B3D] dark:text-[#D4A72C] font-bold">ZUBEIR AME ZUBEIR</span> — known online as <span className="text-[#087A4B] dark:text-[#E7C766] font-semibold">Zubeyr_Amy</span>. I am a passionate Software Developer and a <span className="text-[var(--text-main)] font-semibold">Computer Science Graduate</span> from the <span className="text-[var(--text-main)] font-semibold">State University of Zanzibar (SUZA)</span>.
+          <p className="text-[var(--text-secondary)] font-inter leading-relaxed mb-5">
+            Hello! I'm <span className="text-[var(--text-primary)] font-bold">ZUBEIR AME ZUBEIR</span> — known online as <span className="text-[var(--accent-gold)] font-semibold">Zubeyr_Amy</span>. I am a passionate Software Developer and a <span className="text-[var(--text-primary)] font-semibold">Computer Science Graduate</span> from the <span className="text-[var(--text-primary)] font-semibold">State University of Zanzibar (SUZA)</span>.
           </p>
 
-          <p className="text-[var(--text-light)] font-inter leading-relaxed mb-5">
-            I am a <span className="text-[#005B3D] dark:text-[#D4A72C] font-semibold">versatile software developer</span> with both strong technical engineering skills and a refined aesthetic sense for UI/UX. I don't just write code — I craft complete digital experiences, from system architecture to pixel-perfect interfaces.
+          <p className="text-[var(--text-secondary)] font-inter leading-relaxed mb-5">
+            I am a <span className="text-[var(--accent-gold)] font-semibold">versatile software developer</span> with both strong technical engineering skills and a refined aesthetic sense for UI/UX. I don't just write code — I craft complete digital experiences, from system architecture to pixel-perfect interfaces.
           </p>
 
-          <p className="text-[var(--text-light)] font-inter leading-relaxed mb-5">
-            I have hands-on experience in <span className="text-[var(--text-main)] font-semibold">UI/UX design using Figma</span>, proficiency in the <span className="text-[var(--text-main)] font-semibold">Microsoft Office Suite</span>, and strong analytical foundations rooted in mathematics, enabling me to approach challenges with logic, efficiency, and creativity.
+          <p className="text-[var(--text-secondary)] font-inter leading-relaxed mb-5">
+            I have hands-on experience in <span className="text-[var(--text-primary)] font-semibold">UI/UX design using Figma</span>, proficiency in the <span className="text-[var(--text-primary)] font-semibold">Microsoft Office Suite</span>, and strong analytical foundations rooted in mathematics, enabling me to approach challenges with logic, efficiency, and creativity.
           </p>
 
-          <p className="text-[var(--text-light)] font-inter leading-relaxed">
-            I am passionate about <span className="text-[#005B3D] dark:text-[#D4A72C] font-semibold">continuously learning and exploring new technologies</span>. I enjoy expanding my knowledge across different areas of software development, staying up to date with emerging tools, and applying what I learn to build innovative and user-centered digital solutions.
+          <p className="text-[var(--text-secondary)] font-inter leading-relaxed">
+            I am passionate about <span className="text-[var(--accent-gold)] font-semibold">continuously learning and exploring new technologies</span>. I enjoy expanding my knowledge across different areas of software development, staying up to date with emerging tools, and applying what I learn to build innovative and user-centered digital solutions.
           </p>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2.5 mt-8">
             {["Full-Stack Development", "React.js", "Spring Boot", "Flutter", "UI/UX Design", "Problem Solver", "Continuous Learner"].map((tag) => (
-              <span key={tag} className="text-xs font-mono font-medium text-[#005B3D] dark:text-[#E7C766] bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#DDE9E3] dark:border-[#005B3D]/50 px-3 py-1.5 rounded-full hover:border-[#D4A72C] transition-colors">
+              <span key={tag} className="text-xs font-mono font-medium text-[var(--badge-text)] bg-[var(--badge-bg)] border border-[var(--badge-border)] px-3 py-1.5 rounded-full hover:border-[var(--accent-gold)] transition-colors">
                 {tag}
               </span>
             ))}
@@ -90,16 +91,16 @@ export default function About() {
         {/* Quick Stats / Identity — 2 columns */}
         <motion.div variants={itemVariants} className="lg:col-span-2 flex flex-col gap-4">
           {[
-            { label: "Status",       value: "Computer Science Graduate",                         color: "#005B3D" },
-            { label: "University",   value: "State University of Zanzibar (SUZA)",               color: "#087A4B" },
-            { label: "Field",        value: "Computer Science & Software Dev",                   color: "#0B8A55" },
-            { label: "Focus Areas",  value: "Full-Stack · Mobile · UI/UX",                       color: "#005B3D" },
-            { label: "Design Tool",  value: "Figma & Modern Web Design",                         color: "#087A4B" },
-            { label: "Open To",      value: "Software Engineer Roles · Collaborations",           color: "#D4A72C" },
+            { label: "Status",       value: "Computer Science Graduate" },
+            { label: "University",   value: "State University of Zanzibar (SUZA)" },
+            { label: "Field",        value: "Computer Science & Software Dev" },
+            { label: "Focus Areas",  value: "Full-Stack · Mobile · UI/UX" },
+            { label: "Design Tool",  value: "Figma & Modern Web Design" },
+            { label: "Open To",      value: "Software Engineer Roles · Collaborations", isHighlight: true },
           ].map((item, i) => (
-            <div key={i} className="glass-card px-6 py-4.5 rounded-2xl flex justify-between items-center group hover:border-[#D4A72C]/60 transition-all shadow-sm">
+            <div key={i} className="glass-card px-6 py-4.5 rounded-2xl flex justify-between items-center group hover:border-[var(--border-glow)] transition-all shadow-sm">
               <span className="text-[var(--text-muted)] text-xs sm:text-sm font-inter">{item.label}</span>
-              <span className="text-xs sm:text-sm font-semibold font-space text-[#005B3D] dark:text-[#E7C766]">{item.value}</span>
+              <span className={`text-xs sm:text-sm font-semibold font-space ${item.isHighlight ? 'text-[var(--accent-gold)]' : 'text-[var(--text-primary)]'}`}>{item.value}</span>
             </div>
           ))}
         </motion.div>
@@ -107,8 +108,8 @@ export default function About() {
 
       {/* Specializations Section */}
       <motion.div variants={itemVariants} className="text-center mb-10">
-        <h3 className="text-3xl font-poppins font-bold text-[#005B3D] dark:text-white mb-2">
-          What I <span className="text-[#D4A72C]">Specialize In</span>
+        <h3 className="text-3xl font-poppins font-bold text-[var(--text-primary)] mb-2">
+          What I <span className="text-[var(--accent-gold)]">Specialize In</span>
         </h3>
         <p className="text-[var(--text-muted)] font-inter text-sm max-w-xl mx-auto">
           A broad engineering skill set spanning full-stack development, UI/UX design, and digital innovation.
@@ -122,12 +123,12 @@ export default function About() {
             <motion.div
               key={i}
               variants={itemVariants}
-              className="glass-card p-6 rounded-2xl group hover:border-[#D4A72C]/60 hover:-translate-y-1 transition-all duration-300 flex flex-col items-start gap-3.5 shadow-sm"
+              className="glass-card p-6 rounded-2xl group hover:border-[var(--border-glow)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-start gap-3.5 shadow-sm"
             >
-              <div className="w-12 h-12 rounded-xl bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#DDE9E3] dark:border-[#005B3D]/50 flex items-center justify-center group-hover:bg-[#005B3D] transition-all">
-                <Icon size={22} className="text-[#005B3D] dark:text-[#E7C766] group-hover:text-white transition-colors" />
+              <div className="w-12 h-12 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] flex items-center justify-center group-hover:bg-[var(--button-primary)] transition-all">
+                <Icon size={22} className="text-[var(--accent-gold)] group-hover:text-white transition-colors" />
               </div>
-              <h4 className="text-base font-poppins font-bold text-[#005B3D] dark:text-white">{spec.label}</h4>
+              <h4 className="text-base font-poppins font-bold text-[var(--text-primary)]">{spec.label}</h4>
               <p className="text-[var(--text-muted)] text-xs font-inter leading-relaxed">{spec.desc}</p>
             </motion.div>
           );
