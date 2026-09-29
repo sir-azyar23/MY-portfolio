@@ -31,17 +31,18 @@ export default function MainLayout() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col font-inter relative">
-      {/* Scroll Progress Bar */}
+    <div className="min-h-screen flex flex-col font-inter relative bg-[var(--bg-color)] text-[var(--text-main)]">
+      {/* Scroll Progress Bar with Green to Gold gradient */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-[#00B4D8] origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#005B3D] via-[#087A4B] to-[#D4A72C] origin-left z-[60]"
         style={{ scaleX }}
       />
       
-      {/* Animated Background */}
+      {/* Soft Ambient Background Glows */}
       <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-[#00B4D8]/20 rounded-full blur-[120px] mix-blend-screen" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#0077B6]/20 rounded-full blur-[150px] mix-blend-screen" />
+        <div className="absolute top-[-5%] left-[-5%] w-96 h-96 bg-[#DFF3E9]/60 dark:bg-[#005B3D]/15 rounded-full blur-[100px]" />
+        <div className="absolute top-[40%] right-[-5%] w-[450px] h-[450px] bg-[#F5E7B9]/40 dark:bg-[#D4A72C]/10 rounded-full blur-[130px]" />
+        <div className="absolute bottom-[-5%] left-[20%] w-[500px] h-[500px] bg-[#DFF3E9]/50 dark:bg-[#006B46]/15 rounded-full blur-[140px]" />
       </div>
 
       <Navbar />
@@ -59,9 +60,10 @@ export default function MainLayout() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           onClick={goToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-[#00B4D8] text-[var(--text-main)] shadow-lg hover:bg-[#0077B6] transition-colors z-50"
+          className="fixed bottom-8 right-8 p-3 rounded-full bg-[#005B3D] text-white border border-[#D4A72C]/50 shadow-lg hover:bg-[#087A4B] hover:border-[#D4A72C] transition-all z-50 group"
+          aria-label="Back to top"
         >
-          <ArrowUp size={24} />
+          <ArrowUp size={22} className="group-hover:-translate-y-0.5 transition-transform text-white" />
         </motion.button>
       )}
     </div>

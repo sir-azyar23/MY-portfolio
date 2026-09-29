@@ -27,13 +27,11 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 1. Basic validation
     if (!formData.user_name.trim() || !formData.user_email.trim() || !formData.subject.trim() || !formData.message.trim()) {
       setStatus({ loading: false, success: false, error: 'Please fill in all required fields.' });
       return;
     }
 
-    // 2. Email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.user_email.trim())) {
       setStatus({ loading: false, success: false, error: 'Please enter a valid email address.' });
@@ -42,7 +40,6 @@ export default function Contact() {
 
     setStatus({ loading: true, success: false, error: null });
 
-    // 3. Fetch Keys from Environment Variables or Fallback Constants
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_aq3balk';
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_hz2elgu';
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'chw55OAdvYJqeqbDI';
@@ -67,7 +64,6 @@ export default function Contact() {
         error: null
       });
 
-      // Clear Form fields
       setFormData({
         user_name: '',
         user_email: '',
@@ -75,7 +71,6 @@ export default function Contact() {
         message: ''
       });
 
-      // Clear success notification after 6 seconds
       setTimeout(() => {
         setStatus((prev) => ({ ...prev, success: false }));
       }, 6000);
@@ -112,81 +107,102 @@ export default function Contact() {
       className="max-w-7xl mx-auto px-6 md:px-12 py-12"
     >
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-poppins font-bold text-[var(--text-main)] mb-4">
-          Get In <span className="text-[#00B4D8]">Touch</span>
+        <div className="inline-block px-4 py-1.5 rounded-full bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#D4A72C]/40 mb-3 shadow-sm">
+          <span className="text-[#005B3D] dark:text-[#E7C766] font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-1.5">
+            <span className="text-[#D4A72C]">✦</span> LET'S CONNECT
+          </span>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-poppins font-bold text-[#005B3D] dark:text-white mb-4">
+          Get In <span className="text-[#D4A72C]">Touch</span>
         </h2>
-        <div className="w-24 h-1 bg-[#00B4D8] mx-auto rounded-full"></div>
-        <p className="text-[var(--text-muted)] mt-4 max-w-2xl mx-auto font-inter">
-          Have a project in mind or want to collaborate? Feel free to reach out. I'm always open to discussing new projects, creative ideas, or opportunities.
+        <div className="w-20 h-1 bg-gradient-to-r from-[#005B3D] via-[#087A4B] to-[#D4A72C] mx-auto rounded-full"></div>
+        <p className="text-[var(--text-muted)] mt-4 max-w-2xl mx-auto font-inter text-sm sm:text-base">
+          Have a project in mind, a job opportunity, or want to collaborate? Feel free to reach out anytime.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Contact Information */}
-        <motion.div variants={itemVariants} className="flex flex-col gap-6">
-          <div className="glass-card p-6 rounded-3xl flex items-center gap-6 hover:border-[#00B4D8]/50 transition-colors">
-            <div className="w-14 h-14 rounded-full bg-[#00B4D8]/10 flex items-center justify-center flex-shrink-0">
-              <Mail className="text-[#00B4D8]" size={24} />
-            </div>
-            <div>
-              <h4 className="text-lg font-poppins font-bold text-[var(--text-main)] mb-1">Email Me</h4>
-              <a href="mailto:zubeirame11@gmail.com" className="text-[var(--text-muted)] hover:text-[#00B4D8] transition-colors font-inter">
-                zubeirame11@gmail.com
-              </a>
-            </div>
-          </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        
+        {/* Contact Info Side — Premium Dark Emerald Container */}
+        <motion.div variants={itemVariants} className="bg-[#005B3D] text-white p-8 md:p-10 rounded-3xl shadow-xl border border-[#D4A72C]/40 flex flex-col gap-6 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-48 h-48 bg-[#087A4B]/40 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="glass-card p-6 rounded-3xl flex items-center gap-6 hover:border-[#00B4D8]/50 transition-colors">
-            <div className="w-14 h-14 rounded-full bg-[#00B4D8]/10 flex items-center justify-center flex-shrink-0">
-              <Phone className="text-[#00B4D8]" size={24} />
-            </div>
-            <div>
-              <h4 className="text-lg font-poppins font-bold text-[var(--text-main)] mb-1">Call Me</h4>
-              <a href="tel:+255772327918" className="text-[var(--text-muted)] hover:text-[#00B4D8] transition-colors font-inter">
-                +255 772 327 918
-              </a>
-            </div>
-          </div>
+          <h3 className="text-2xl font-poppins font-bold text-white mb-2 flex items-center gap-2">
+            Contact Information
+          </h3>
+          <p className="text-emerald-100/80 font-inter text-sm mb-4 leading-relaxed">
+            I'm always open to discussing new software development projects, creative ideas, or engineering opportunities.
+          </p>
 
-          <div className="glass-card p-6 rounded-3xl flex items-center gap-6 hover:border-[#00B4D8]/50 transition-colors">
-            <div className="w-14 h-14 rounded-full bg-[#00B4D8]/10 flex items-center justify-center flex-shrink-0">
-              <MessageSquare className="text-[#00B4D8]" size={24} />
+          <div className="flex flex-col gap-5">
+            <div className="bg-[#004730] border border-[#D4A72C]/30 p-5 rounded-2xl flex items-center gap-5 hover:border-[#D4A72C] transition-all">
+              <div className="w-12 h-12 rounded-xl bg-[#005B3D] flex items-center justify-center shrink-0 border border-[#D4A72C]/40">
+                <Mail className="text-[#D4A72C]" size={22} />
+              </div>
+              <div>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-200">Email Me</h4>
+                <a href="mailto:zubeirame11@gmail.com" className="text-white font-medium hover:text-[#D4A72C] transition-colors font-inter text-sm sm:text-base">
+                  zubeirame11@gmail.com
+                </a>
+              </div>
             </div>
-            <div>
-              <h4 className="text-lg font-poppins font-bold text-[var(--text-main)] mb-1">WhatsApp</h4>
-              <a href="https://wa.me/255772327918" target="_blank" rel="noreferrer" className="text-[var(--text-muted)] hover:text-[#00B4D8] transition-colors font-inter">
-                +255 772 327 918
-              </a>
-            </div>
-          </div>
 
-          <div className="glass-card p-6 rounded-3xl flex items-center gap-6 hover:border-[#00B4D8]/50 transition-colors">
-            <div className="w-14 h-14 rounded-full bg-[#00B4D8]/10 flex items-center justify-center flex-shrink-0">
-              <MapPin className="text-[#00B4D8]" size={24} />
+            <div className="bg-[#004730] border border-[#D4A72C]/30 p-5 rounded-2xl flex items-center gap-5 hover:border-[#D4A72C] transition-all">
+              <div className="w-12 h-12 rounded-xl bg-[#005B3D] flex items-center justify-center shrink-0 border border-[#D4A72C]/40">
+                <Phone className="text-[#D4A72C]" size={22} />
+              </div>
+              <div>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-200">Call Me</h4>
+                <a href="tel:+255772327918" className="text-white font-medium hover:text-[#D4A72C] transition-colors font-inter text-sm sm:text-base">
+                  +255 772 327 918
+                </a>
+              </div>
             </div>
-            <div>
-              <h4 className="text-lg font-poppins font-bold text-[var(--text-main)] mb-1">Location</h4>
-              <p className="text-[var(--text-muted)] font-inter">Zanzibar, Tanzania</p>
+
+            <div className="bg-[#004730] border border-[#D4A72C]/30 p-5 rounded-2xl flex items-center gap-5 hover:border-[#D4A72C] transition-all">
+              <div className="w-12 h-12 rounded-xl bg-[#005B3D] flex items-center justify-center shrink-0 border border-[#D4A72C]/40">
+                <MessageSquare className="text-[#D4A72C]" size={22} />
+              </div>
+              <div>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-200">WhatsApp</h4>
+                <a href="https://wa.me/255772327918" target="_blank" rel="noreferrer" className="text-white font-medium hover:text-[#D4A72C] transition-colors font-inter text-sm sm:text-base">
+                  +255 772 327 918
+                </a>
+              </div>
+            </div>
+
+            <div className="bg-[#004730] border border-[#D4A72C]/30 p-5 rounded-2xl flex items-center gap-5 hover:border-[#D4A72C] transition-all">
+              <div className="w-12 h-12 rounded-xl bg-[#005B3D] flex items-center justify-center shrink-0 border border-[#D4A72C]/40">
+                <MapPin className="text-[#D4A72C]" size={22} />
+              </div>
+              <div>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-200">Location</h4>
+                <p className="text-white font-medium font-inter text-sm sm:text-base">Zanzibar, Tanzania</p>
+              </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Contact Form */}
-        <motion.div variants={itemVariants} className="glass-card p-8 rounded-3xl">
+        {/* Contact Form — Clean White Card */}
+        <motion.div variants={itemVariants} className="bg-white dark:bg-[#0A261D] p-8 md:p-10 rounded-3xl border border-[#DDE9E3] dark:border-white/15 shadow-xl">
+          <h3 className="text-2xl font-poppins font-bold text-[#005B3D] dark:text-white mb-6">
+            Send Me a Message
+          </h3>
+
           <form ref={formRef} className="flex flex-col gap-6" onSubmit={handleSubmit}>
             
             {/* SUCCESS NOTIFICATION */}
             {status.success && (
-              <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm flex items-center gap-3">
-                <CheckCircle size={20} className="shrink-0 text-emerald-400" />
+              <div className="p-4 rounded-xl bg-[#DFF3E9] border border-[#087A4B] text-[#005B3D] text-sm flex items-center gap-3">
+                <CheckCircle size={20} className="shrink-0 text-[#087A4B]" />
                 <span>Your message has been sent successfully. I will get back to you soon!</span>
               </div>
             )}
 
             {/* ERROR NOTIFICATION */}
             {status.error && (
-              <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm flex items-center gap-3">
-                <AlertCircle size={20} className="shrink-0 text-rose-400" />
+              <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 text-sm flex items-center gap-3">
+                <AlertCircle size={20} className="shrink-0 text-rose-500" />
                 <span>{status.error}</span>
               </div>
             )}
@@ -200,10 +216,10 @@ export default function Contact() {
                   value={formData.user_name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] rounded-xl px-4 py-3 text-[var(--text-main)] focus:outline-none focus:border-[#00B4D8] transition-colors peer"
+                  className="w-full bg-[#F3FAF6] dark:bg-white/5 border border-[#DDE9E3] dark:border-white/15 rounded-xl px-4 py-3.5 text-[var(--text-main)] focus:outline-none focus:border-[#087A4B] focus:ring-2 focus:ring-[#087A4B]/20 transition-all peer text-sm"
                   placeholder=" "
                 />
-                <label htmlFor="name" className={`absolute left-4 transition-all pointer-events-none ${formData.user_name ? '-top-6 text-sm text-[#00B4D8]' : 'top-3 text-[var(--text-muted)] peer-focus:-top-6 peer-focus:text-sm peer-focus:text-[#00B4D8]'}`}>
+                <label htmlFor="name" className={`absolute left-4 transition-all pointer-events-none ${formData.user_name ? '-top-5 text-xs text-[#005B3D] dark:text-[#E7C766] font-medium' : 'top-3.5 text-xs text-[var(--text-muted)] peer-focus:-top-5 peer-focus:text-xs peer-focus:text-[#005B3D] dark:peer-focus:text-[#E7C766]'}`}>
                   Your Name
                 </label>
               </div>
@@ -216,16 +232,16 @@ export default function Contact() {
                   value={formData.user_email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] rounded-xl px-4 py-3 text-[var(--text-main)] focus:outline-none focus:border-[#00B4D8] transition-colors peer"
+                  className="w-full bg-[#F3FAF6] dark:bg-white/5 border border-[#DDE9E3] dark:border-white/15 rounded-xl px-4 py-3.5 text-[var(--text-main)] focus:outline-none focus:border-[#087A4B] focus:ring-2 focus:ring-[#087A4B]/20 transition-all peer text-sm"
                   placeholder=" "
                 />
-                <label htmlFor="email" className={`absolute left-4 transition-all pointer-events-none ${formData.user_email ? '-top-6 text-sm text-[#00B4D8]' : 'top-3 text-[var(--text-muted)] peer-focus:-top-6 peer-focus:text-sm peer-focus:text-[#00B4D8]'}`}>
+                <label htmlFor="email" className={`absolute left-4 transition-all pointer-events-none ${formData.user_email ? '-top-5 text-xs text-[#005B3D] dark:text-[#E7C766] font-medium' : 'top-3.5 text-xs text-[var(--text-muted)] peer-focus:-top-5 peer-focus:text-xs peer-focus:text-[#005B3D] dark:peer-focus:text-[#E7C766]'}`}>
                   Your Email
                 </label>
               </div>
             </div>
             
-            <div className="flex flex-col gap-2 relative group mt-4">
+            <div className="flex flex-col gap-2 relative group mt-2">
               <input 
                 type="text" 
                 id="subject"
@@ -233,15 +249,15 @@ export default function Contact() {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] rounded-xl px-4 py-3 text-[var(--text-main)] focus:outline-none focus:border-[#00B4D8] transition-colors peer"
+                className="w-full bg-[#F3FAF6] dark:bg-white/5 border border-[#DDE9E3] dark:border-white/15 rounded-xl px-4 py-3.5 text-[var(--text-main)] focus:outline-none focus:border-[#087A4B] focus:ring-2 focus:ring-[#087A4B]/20 transition-all peer text-sm"
                 placeholder=" "
               />
-              <label htmlFor="subject" className={`absolute left-4 transition-all pointer-events-none ${formData.subject ? '-top-6 text-sm text-[#00B4D8]' : 'top-3 text-[var(--text-muted)] peer-focus:-top-6 peer-focus:text-sm peer-focus:text-[#00B4D8]'}`}>
+              <label htmlFor="subject" className={`absolute left-4 transition-all pointer-events-none ${formData.subject ? '-top-5 text-xs text-[#005B3D] dark:text-[#E7C766] font-medium' : 'top-3.5 text-xs text-[var(--text-muted)] peer-focus:-top-5 peer-focus:text-xs peer-focus:text-[#005B3D] dark:peer-focus:text-[#E7C766]'}`}>
                 Subject
               </label>
             </div>
             
-            <div className="flex flex-col gap-2 relative group mt-4">
+            <div className="flex flex-col gap-2 relative group mt-2">
               <textarea 
                 id="message"
                 name="message"
@@ -249,10 +265,10 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows="5"
-                className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] rounded-xl px-4 py-3 text-[var(--text-main)] focus:outline-none focus:border-[#00B4D8] transition-colors peer resize-none"
+                className="w-full bg-[#F3FAF6] dark:bg-white/5 border border-[#DDE9E3] dark:border-white/15 rounded-xl px-4 py-3.5 text-[var(--text-main)] focus:outline-none focus:border-[#087A4B] focus:ring-2 focus:ring-[#087A4B]/20 transition-all peer resize-none text-sm"
                 placeholder=" "
               ></textarea>
-              <label htmlFor="message" className={`absolute left-4 transition-all pointer-events-none ${formData.message ? '-top-6 text-sm text-[#00B4D8]' : 'top-3 text-[var(--text-muted)] peer-focus:-top-6 peer-focus:text-sm peer-focus:text-[#00B4D8]'}`}>
+              <label htmlFor="message" className={`absolute left-4 transition-all pointer-events-none ${formData.message ? '-top-5 text-xs text-[#005B3D] dark:text-[#E7C766] font-medium' : 'top-3.5 text-xs text-[var(--text-muted)] peer-focus:-top-5 peer-focus:text-xs peer-focus:text-[#005B3D] dark:peer-focus:text-[#E7C766]'}`}>
                 Your Message
               </label>
             </div>
@@ -260,16 +276,16 @@ export default function Contact() {
             <button 
               type="submit" 
               disabled={status.loading}
-              className="mt-4 px-8 py-3 rounded-xl bg-[#00B4D8] text-[var(--text-main)] font-medium hover:bg-[#0077B6] transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,180,216,0.3)] hover:shadow-[0_0_30px_rgba(0,180,216,0.5)] w-full sm:w-auto self-start disabled:opacity-50 disabled:cursor-not-allowed"
+              className="mt-2 px-8 py-3.5 rounded-xl bg-[#005B3D] text-white font-medium hover:bg-[#087A4B] transition-all flex items-center justify-center gap-2 border border-[#D4A72C]/40 shadow-md w-full sm:w-auto self-start disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {status.loading ? (
                 <>
-                  <Loader2 size={18} className="animate-spin" />
+                  <Loader2 size={18} className="animate-spin text-[#D4A72C]" />
                   Sending...
                 </>
               ) : (
                 <>
-                  <Send size={18} />
+                  <Send size={18} className="text-[#D4A72C]" />
                   Send Message
                 </>
               )}

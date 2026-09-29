@@ -4,33 +4,28 @@ import { Monitor, Smartphone, PenTool, Database, LayoutTemplate } from 'lucide-r
 const servicesData = [
   {
     title: "Web Development",
-    description: "Building fast, responsive, and scalable web applications using React.js and modern backend technologies.",
-    icon: Monitor,
-    delay: 0.1
+    description: "Building fast, responsive, and scalable web applications using React.js, Tailwind CSS, and modern backend technologies.",
+    icon: Monitor
   },
   {
     title: "Mobile App Development",
-    description: "Creating intuitive native and cross-platform mobile applications for seamless user experiences.",
-    icon: Smartphone,
-    delay: 0.2
+    description: "Creating intuitive native and cross-platform mobile applications for seamless user experiences with clean architecture.",
+    icon: Smartphone
   },
   {
     title: "UI/UX Design",
-    description: "Designing clean, modern, and user-centric interfaces with tools like Canva and standard design principles.",
-    icon: PenTool,
-    delay: 0.3
+    description: "Designing clean, modern, and user-centric interfaces with Figma, wireframing, and standard usability principles.",
+    icon: PenTool
   },
   {
     title: "Database Design",
-    description: "Architecting structured, efficient, and optimized database schemas using PostgreSQL and MySQL.",
-    icon: Database,
-    delay: 0.4
+    description: "Architecting structured, efficient, and optimized database schemas using PostgreSQL, MySQL, and relational modeling.",
+    icon: Database
   },
   {
     title: "Frontend Development",
-    description: "Translating UI designs into interactive, accessible, and highly performant web frontends.",
-    icon: LayoutTemplate,
-    delay: 0.5
+    description: "Translating UI designs into interactive, accessible, performant, and pixel-perfect web frontends.",
+    icon: LayoutTemplate
   }
 ];
 
@@ -44,7 +39,7 @@ export default function Services() {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9, y: 20 },
+    hidden: { opacity: 0, scale: 0.95, y: 20 },
     visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
   };
 
@@ -57,12 +52,17 @@ export default function Services() {
       className="max-w-7xl mx-auto px-6 md:px-12 py-12"
     >
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-poppins font-bold text-[var(--text-main)] mb-4">
-          My <span className="text-[#00B4D8]">Services</span>
+        <div className="inline-block px-4 py-1.5 rounded-full bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#D4A72C]/40 mb-3 shadow-sm">
+          <span className="text-[#005B3D] dark:text-[#E7C766] font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-1.5">
+            <span className="text-[#D4A72C]">✦</span> WHAT I OFFER
+          </span>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-poppins font-bold text-[#005B3D] dark:text-white mb-4">
+          My <span className="text-[#D4A72C]">Services</span>
         </h2>
-        <div className="w-24 h-1 bg-[#00B4D8] mx-auto rounded-full"></div>
-        <p className="text-[var(--text-muted)] mt-4 max-w-2xl mx-auto font-inter">
-          I offer a wide range of software development services to bring your ideas to life.
+        <div className="w-20 h-1 bg-gradient-to-r from-[#005B3D] via-[#087A4B] to-[#D4A72C] mx-auto rounded-full"></div>
+        <p className="text-[var(--text-muted)] mt-4 max-w-2xl mx-auto font-inter text-sm sm:text-base">
+          I provide end-to-end software development and UI/UX design services to turn complex requirements into robust digital products.
         </p>
       </div>
 
@@ -73,12 +73,12 @@ export default function Services() {
             <motion.div 
               key={index}
               variants={cardVariants}
-              className="glass-card p-8 rounded-3xl group hover:bg-[#00B4D8]/5 transition-colors border border-[var(--input-border)] hover:border-[#00B4D8]/30"
+              className="glass-card p-8 rounded-3xl group hover:border-[#D4A72C]/60 hover:-translate-y-1 transition-all duration-300 shadow-sm"
             >
-              <div className="w-16 h-16 rounded-2xl bg-[#00B4D8]/10 flex items-center justify-center mb-6 group-hover:bg-[#00B4D8] transition-colors">
-                <Icon size={32} className="text-[#00B4D8] group-hover:text-[var(--text-main)] transition-colors" />
+              <div className="w-16 h-16 rounded-2xl bg-[#DFF3E9] dark:bg-[#005B3D]/30 border border-[#D4A72C]/30 flex items-center justify-center mb-6 group-hover:bg-[#005B3D] transition-colors shadow-sm">
+                <Icon size={30} className="text-[#005B3D] dark:text-[#E7C766] group-hover:text-[#D4A72C] transition-colors" />
               </div>
-              <h3 className="text-xl font-poppins font-bold text-[var(--text-main)] mb-4">
+              <h3 className="text-xl font-poppins font-bold text-[#005B3D] dark:text-white mb-4">
                 {service.title}
               </h3>
               <p className="text-[var(--text-muted)] font-inter text-sm leading-relaxed">
